@@ -6,8 +6,8 @@ try {
 
   let totalDistance = 0
 
-  const inputFile = fs.readFileSync('../input.txt', 'utf-8')
-  const input = inputFile.split('\r\n')
+  const fileInput = fs.readFileSync('../input.txt', 'utf-8')
+  const input = fileInput.split('\r\n')
   const inputLength = input.length - 1
 
   for (let i = 0; i < inputLength; i++) {
