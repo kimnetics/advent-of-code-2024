@@ -42,10 +42,7 @@ try {
 
   // Build map of antinodes.
   for (const combinations of locationCombinations) {
-    const combinationslength = combinations.length
-    if (combinationslength < 1) continue
-
-    for (let i = 0; i < combinationslength; i++) {
+    for (let i = 0; i <  combinations.length; i++) {
       const xDelta = Math.abs(combinations[i][0][0] - combinations[i][1][0])
       const yDelta = Math.abs(combinations[i][0][1] - combinations[i][1][1])
 
