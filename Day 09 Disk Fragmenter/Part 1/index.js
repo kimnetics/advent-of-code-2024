@@ -44,7 +44,7 @@ try {
     while (rightIndex >= 0 && blocks[rightIndex] === 'S') {
       rightIndex--
     }
-    // Move file to space.
+    // Move file block to space block.
     if (leftIndex < rightIndex) {
       blocks[leftIndex] = blocks[rightIndex]
       leftIndex++
