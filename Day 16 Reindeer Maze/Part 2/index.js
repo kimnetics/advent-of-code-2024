@@ -165,10 +165,10 @@ try {
   }
 
   const states = new Queue()
-  const seen = new Set()
+  const bestPathKeys = new Set()
   for (const endNodeKey of endNodeKeys) {
     states.enqueue(endNodeKey)
-    seen.add(endNodeKey)
+    bestPathKeys.add(endNodeKey)
   }
 
   while (!states.isEmpty()) {
@@ -179,23 +179,23 @@ try {
 
     for (const node of backTrack.get(backTrackKey)) {
       const nodeKey = getKey(node.x, node.y, node.xOffset, node.yOffset)
-      if (seen.has(nodeKey)) {
+      if (bestPathKeys.has(nodeKey)) {
         continue
       }
       if ((node.x === -1) && (node.y === -1)) {
         continue
       }
 
-      seen.add(nodeKey)
+      bestPathKeys.add(nodeKey)
       states.enqueue(nodeKey)
     }
   }
 
-  const uniqueSeen = new Set(Array.from(seen).map((nodeKey) => {
+  const uniqueBestPathXY = new Set(Array.from(bestPathKeys).map((nodeKey) => {
     const elements = nodeKey.split(',')
     return `${elements[0]}, ${elements[1]}`
   }))
-  console.log(uniqueSeen.size)
+  console.log(uniqueBestPathXY.size)
 } catch (err) {
   console.error('Error reading file: ', err)
 }
